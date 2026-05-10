@@ -11,12 +11,13 @@
 - [x] Them integration test cho `GET /users`.
 - [x] Them integration test cho `PUT /users/{id}`.
 - [x] Them integration test cho `DELETE /users/{id}`.
-- [ ] Chot local database workflow: MySQL local hoac Docker Compose.
-- [ ] Them Spring Boot Actuator health endpoint.
-- [ ] Them Docker Compose cho MySQL.
-- [ ] Can nhac bo Config/Eureka/Feign dependency neu chua dung trong service don.
+- [x] Them Spring Boot Actuator health endpoint.
+- [x] Tat `spring.jpa.open-in-view`.
+- [x] Chot local database workflow bang XAMPP MySQL.
+- [x] Ghi huong dan chay MySQL XAMPP vao docs.
+- [x] Bo Config/Eureka/Feign dependency chua dung de giu app nhe.
+- [ ] Chi them distributed-system tool khi microservice don dau tien da chay on.
+- [x] Tao README + smoke-test script cho first run.
 
 ## Phat hien, chua sua
 - `application.yaml` runtime dang dung MySQL local voi password rong. Neu MySQL may khac config, app se fail khi start.
-- Test log co warning `spring.jpa.open-in-view is enabled by default`. Nen set `spring.jpa.open-in-view=false`.
-- Test log van khoi tao mot so bean Spring Cloud/Eureka du da disable discovery. Nen don dependency sau khi chot kien truc nhieu service.

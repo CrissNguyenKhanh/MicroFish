@@ -8,10 +8,3 @@ spring:
     hibernate:
       ddl-auto: create-drop
     show-sql: false
-  cloud:
-    config:
-      enabled: false
-      import-check:
-        enabled: false
-    discovery:
-      enabled: false

@@ -31,6 +31,7 @@ public class UserController {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public UserResponse createUser(@Valid @RequestBody CreateUserRequest request) {
+		System.out.println(request.toString());
 		return userService.createUser(request);
 	}
 
