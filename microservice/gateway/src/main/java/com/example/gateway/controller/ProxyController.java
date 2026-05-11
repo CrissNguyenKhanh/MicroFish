@@ -25,6 +25,7 @@ public class ProxyController {
 	public ProxyController(
 			RestClient.Builder restClientBuilder,
 			@Value("${services.user-service.base-url}") String userServiceBaseUrl) {
+//		tao httpclient
 		this.restClient = restClientBuilder.build();
 		this.userServiceBaseUrl = userServiceBaseUrl;
 	}
@@ -39,7 +40,9 @@ public class ProxyController {
 					org.springframework.web.bind.annotation.RequestMethod.PATCH,
 					org.springframework.web.bind.annotation.RequestMethod.OPTIONS
 			})
+//hàm xử lí full mọi dịch vụ khi gặp các http reqeust khác nhau Universal HTTP Forwarder
 	public ResponseEntity<byte[]> forward(HttpServletRequest request) {
+//		lay request tu user gui len ( day al lop tiep can voi request cua users dau tien geateway -> cac servicekhac)
 		String targetUrl = buildTargetUrl(request);
 		HttpMethod method = HttpMethod.valueOf(request.getMethod());
 		byte[] body = readBody(request);
