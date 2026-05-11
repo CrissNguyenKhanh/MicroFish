@@ -9,13 +9,14 @@
 - [x] Tat `spring.jpa.open-in-view`.
 - [x] Chot local database workflow bang XAMPP MySQL.
 - [x] Bo Config/Eureka/Feign dependency chua dung de giu app nhe.
-- [x] Tao README + smoke-test script cho first run.
+- [x] Tao smoke-test script cho first run.
 - [x] Chuyen project sang monorepo layout nhe: root parent + `services/user-service`.
+- [x] Tao gateway module nhe de route request den user-service.
 
 ## Tiep theo
 - [ ] User tu chay thu bang XAMPP MySQL va `scripts/smoke-test.ps1`.
-- [ ] Tao scaffold nhe cho `gateway` khi can route request.
-- [ ] Tao scaffold nhe cho `shared` khi can dung code chung.
+- [ ] Tao `shared` module that khi can dung chung response/error.
+- [ ] Them service nghiep vu thu hai neu muon hoc inter-service communication.
 - [ ] Chi them distributed-system tool khi microservice don dau tien da chay on.
 
 ## Phat hien, chua sua

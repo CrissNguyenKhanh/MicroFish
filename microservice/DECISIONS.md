@@ -1,5 +1,11 @@
 # Decisions
 
+## 2026-05-11 - Them gateway nhe truoc Eureka/Config
+- Gateway chay port 8080, user-service chay port 8081.
+- Gateway route `/users/**` va `/hello/**` sang user-service.
+- Dung Spring MVC proxy bang `RestClient`, chua dung Spring Cloud Gateway.
+- Ly do: giong huong api-gateway cua repo multi-service, nhung nhe hon va de chay tren may hien tai.
+
 ## 2026-05-10 - Layout monorepo nhe theo Bookteria
 - Root giu vai tro Maven parent aggregator.
 - Service chay that nam trong `services/user-service`.

@@ -1,5 +1,6 @@
 # Changelog
 
+- [2026-05-11] - Them gateway module nhe tren port 8080 va chuyen user-service sang port 8081.
 - [2026-05-10] - Chuyen sang monorepo layout nhe: root parent + services/user-service.
 - [2026-05-10] - Tao README va smoke-test script de chay first microservice de hon.
 - [2026-05-10] - Bo Config/Eureka/Feign dependency de giu first microservice nhe va de chay hon.

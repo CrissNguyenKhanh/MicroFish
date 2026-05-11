@@ -1,24 +1,22 @@
 # Task
-Chuyen sang monorepo layout nhe va giu first service runnable.
+Them gateway nhe de project co flow gan Bookteria hon: client -> gateway -> user-service.
 
 # Toi hoc duoc gi?
-- Controller chi nhan request, service giu nghiep vu.
-- Validation va exception handler giup API tra loi sach.
-- MockMvc test di qua HTTP layer ma khong can start server that.
-- Test profile H2 giup test khong phu thuoc MySQL local.
-- Actuator cho health endpoint phuc vu monitor.
-- XAMPP MySQL hop hon Docker khi may thieu dung luong.
-- Bo Config/Eureka/Feign giup app nhe hon va de chay hon.
-- README va smoke test giup nguoi moi chay thu nhanh.
-- Monorepo parent POM giup tach service ra `services/user-service` ma van build tu root.
-- `gateway` va `shared` co the de scaffold, khong can full stack ngay.
+- Gateway la entrypoint cho client, service ben trong co the nam port rieng.
+- Port 8080 danh cho gateway, port 8081 danh cho user-service.
+- Gateway co the route request ma chua can Eureka/Config Server.
+- Spring MVC `RestClient` co the lam proxy nhe cho phase dau.
+- Neu Spring Boot khong tu tao `RestClient.Builder`, minh tao bean `RestClient.builder()`.
+- Actuator health nen co tren ca gateway va service.
 
 # File da sua
 - pom.xml
-- services/user-service/pom.xml
-- gateway/README.md
-- shared/README.md
-- README.md
+- gateway/pom.xml
+- gateway/src/main/java/com/example/gateway/GatewayApplication.java
+- gateway/src/main/java/com/example/gateway/controller/ProxyController.java
+- gateway/src/main/resources/application.yaml
+- gateway/src/test/java/com/example/gateway/GatewayApplicationTests.java
+- services/user-service/src/main/resources/application.yaml
 - PROJECT.md
 - TODO.md
 - CHANGELOG.md
@@ -26,12 +24,12 @@ Chuyen sang monorepo layout nhe va giu first service runnable.
 - notes/dev-log.md
 
 # Vi sao sua vay?
-De project co structure gan repo multi-service, nhung van nhe: chi `user-service` la app chay that, `gateway` va `shared` de phase sau.
+De co duong chay microservice ro hon: client goi gateway `:8080`, gateway day request sang user-service `:8081`. Cach nay gan repo multi-service nhung van nhe, khong can Docker/Eureka/Config Server.
 
 # Lenh da chay
-- mvn test -> fail lan dau do sandbox chan Maven download Spring Boot parent.
-- mvn test -> BUILD SUCCESS, 9 tests pass.
+- mvn test -> fail do thieu bean `RestClient.Builder` trong gateway.
+- mvn test -> BUILD SUCCESS, 10 tests pass.
 
 # Loi gap phai
-- Maven can network de tai Spring Boot parent POM lan dau.
+- Gateway test fail vi `ProxyController` can `RestClient.Builder` nhung context khong co bean nay. Da them bean trong `GatewayApplication`.
 - Mockito dynamic agent warning khi test chay bang Java 23; da ghi TODO, chua sua trong task nay.
