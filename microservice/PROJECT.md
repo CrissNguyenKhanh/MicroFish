@@ -1,5 +1,5 @@
 # Project
-Spring Boot microservice dau tay cho user management.
+Lightweight microservice monorepo dau tay cho user management.
 
 # Project dang lam gi?
 - Expose REST API cho user.
@@ -8,7 +8,18 @@ Spring Boot microservice dau tay cho user management.
 - Test profile dung H2 in-memory de khong phu thuoc MySQL.
 - Uu tien chay duoc first microservice dau tien truoc khi them distributed-system tool.
 
-# Kien truc lien quan
+# Cau truc hien tai
+```text
+microservice/
+-> pom.xml                       parent Maven aggregator
+-> services/user-service          Spring Boot service dang chay
+-> gateway                        scaffold api-gateway sau nay
+-> shared                         scaffold code chung sau nay
+-> scripts                        script chay thu
+-> notes                          dev log
+```
+
+# Kien truc user-service
 ```text
 HTTP request
 -> Controller
@@ -18,9 +29,9 @@ HTTP request
 ```
 
 # Trang thai hien tai
-- Da co `User` entity.
-- Da co `UserRepository`.
-- Da co `UserService` voi full CRUD user.
+- Da tach app vao `services/user-service`.
+- Root `pom.xml` la Maven parent aggregator.
+- Da co `User` entity, `UserRepository`, `UserService`.
 - Da co REST API:
   - `POST /users`
   - `GET /users`
@@ -31,15 +42,15 @@ HTTP request
 - Da co global exception handler tra JSON loi sach.
 - Da co integration tests bang MockMvc va H2.
 - Da co actuator health endpoint.
-- Da co `notes/dev-log.md`.
 - Da co `README.md` va `scripts/smoke-test.ps1` cho first run.
+- `mvn test` tu root da pass 9 tests.
 
 # Task tiep theo
-- Giu stack nhe cho first microservice; chi them tool phan tan khi can.
-- Danh cho user chay thu: start XAMPP, run app, chay smoke test script.
+- Danh cho user chay thu: start XAMPP, run service, chay smoke test script.
+- Chi them gateway/service discovery/config server khi user-service don da chay on.
 
 # Local run
-1. Start MySQL in XAMPP.
+1. Start MySQL trong XAMPP.
 2. Tao database `microservice_db` trong phpMyAdmin.
-3. Chay app bang `mvn spring-boot:run`.
+3. Chay service bang `mvn -pl services/user-service spring-boot:run`.
 4. Health check o `http://localhost:8080/actuator/health`.

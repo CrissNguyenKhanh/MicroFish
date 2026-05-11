@@ -1,12 +1,18 @@
 # Decisions
 
+## 2026-05-10 - Layout monorepo nhe theo Bookteria
+- Root giu vai tro Maven parent aggregator.
+- Service chay that nam trong `services/user-service`.
+- `gateway` va `shared` chi la scaffold, khong ep tao distributed-system day du ngay dau.
+- Ly do: can structure ro rang nhu repo mau, nhung van nhe de may yeu van chay noi.
+
 ## 2026-05-10 - Them smoke test local
 - Tai lieu run va script smoke test giup nguoi moi chay app nhanh hon.
 - Smoke test di qua health, create, read, list, update, delete.
 - Ly do: first microservice can co duong chay thu ro rang truoc khi hoc phan tan.
 
 ## 2026-05-10 - Uu tien first runnable microservice
-- Giua stack nhe va co the chay duoc tren may hien tai.
+- Giu stack nhe va co the chay duoc tren may hien tai.
 - Tam thoi khong dua Config Server, Eureka, Feign vao duong chay chinh.
 - Ly do: can mot microservice dau tien chay on, ro luong, de hoc va demo truoc.
 

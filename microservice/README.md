@@ -1,6 +1,6 @@
 # Microservice
 
-Spring Boot user microservice dau tay.
+Lightweight microservice monorepo dau tay.
 
 ## Can gi de chay
 - Java 21+
@@ -9,16 +9,23 @@ Spring Boot user microservice dau tay.
 ## Chay local
 1. Start MySQL trong XAMPP.
 2. Tao database `microservice_db` trong phpMyAdmin.
-3. Chay app:
+3. Chay service:
 
 ```powershell
-mvn spring-boot:run
+mvn -pl services/user-service spring-boot:run
 ```
 
 4. Check health:
 
 ```text
 http://localhost:8080/actuator/health
+```
+
+## Test
+Chay tu repo root:
+
+```powershell
+mvn test
 ```
 
 ## Smoke test
@@ -35,3 +42,8 @@ Chay app xong, mo PowerShell va go:
 - `PUT /users/{id}`
 - `DELETE /users/{id}`
 - `GET /actuator/health`
+
+## Cau truc
+- `services/user-service`: service dang chay
+- `gateway`: scaffold api-gateway sau nay
+- `shared`: scaffold code chung sau nay
